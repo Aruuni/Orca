@@ -20,12 +20,13 @@
   SOFTWARE.
 '''
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 import tensorflow as tf
 import numpy as np
 import os
 import time
-
 EXPLORE = 4000
 STDDEV = 0.1
 NSTEP = 0.3

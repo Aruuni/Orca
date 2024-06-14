@@ -2,7 +2,7 @@
 linux*
 client
 *orca-server-mahimahi
-*.luca-desktop
+*.sage-desktop
 rl-module/orca-server-mahimahi
 rl-module/clientThr
 clientThr

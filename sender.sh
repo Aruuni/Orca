@@ -1,6 +1,6 @@
 #!/bin/bash
 port=$1
-path=/home/luca/Orca/rl-module
+path=/home/sage/Orca/rl-module
 period=20
 scheme="cubic"
 id=$2

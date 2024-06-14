@@ -192,7 +192,7 @@ void start_server(int flow_num, int client_port)
     
     // sprintf(final_cmd,"%s",cmd);
 
-    DBGPRINT(DBGSERVER,0,"%s\n",final_cmd);
+    // DBGPRINT(DBGSERVER,0,"%s\n",final_cmd);
     info->trace=trace;
     info->num_lines=num_lines;
     /**

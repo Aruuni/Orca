@@ -1,5 +1,5 @@
-# mahimahi mm-link (Downlink) [/home/luca/Orca/rl-module/../traces/wired12] > test_down.txt
-# command line: 'mm-link' '/home/luca/Orca/rl-module/../traces/wired12' '/home/luca/Orca/rl-module/../traces/wired12' '--downlink-log=test_down.txt' '--uplink-queue=droptail' '--uplink-queue-args="packets=200"' '--downlink-queue=droptail' '--downlink-queue-args="packets=200"' '--' 'sh' '-c' 'iperf3 -c $MAHIMAHI_BASE -R -p 4444 -i 0.1 --logfile test.txt -t 60'
+# mahimahi mm-link (Downlink) [/home/sage/Orca/rl-module/../traces/wired12] > test_down.txt
+# command line: 'mm-link' '/home/sage/Orca/rl-module/../traces/wired12' '/home/sage/Orca/rl-module/../traces/wired12' '--downlink-log=test_down.txt' '--uplink-queue=droptail' '--uplink-queue-args="packets=200"' '--downlink-queue=droptail' '--downlink-queue-args="packets=200"' '--' 'sh' '-c' 'iperf3 -c $MAHIMAHI_BASE -R -p 4444 -i 0.1 --logfile test.txt -t 60'
 # queue: droptail [packets=200]
 # init timestamp: 1674296995026
 # base timestamp: 32
