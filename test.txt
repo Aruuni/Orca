@@ -1,2 +1,0 @@
-iperf3: error - control socket has closed unexpectedly
-iperf3: error - control socket has closed unexpectedly

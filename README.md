@@ -33,17 +33,16 @@ mkdir ~/venv
 sudo apt update
 sudo apt install python3-pip
 sudo pip3 install -U virtualenv
-virtualenv ~/venv -p python3
+virtualenv ~/venv -p python3.7
 ```
 If you change the path of the virtual environment, you need to change the source code accordingly. The source code assumes that virtual environment is set @ ~/venv .
 
 ##### Install packages
 ```
+
 source ~/venv/bin/activate
 pip install --upgrade pip
-pip install gym
-pip install tensorflow==1.14
-pip install sysv_ipc
+pip install gym tensorflow==1.14 sysv_ipc
 ```
 
 Verify Installation

@@ -348,7 +348,7 @@ void start_server(int flow_num, int client_port)
 
                 }
                 
-            DBGPRINT(0,0,"Server is Connected to the client...\n");
+            //DBGPRINT(0,0,"Server is Connected to the client...\n");
             flow_index++;
         }
     }
