@@ -5,8 +5,8 @@ g++ -std=c++11 src/clientThr.c -o clientThr
 cp client rl-module/
 cp clientThr rl-module/
 mv orca-server*  rl-module/
-sudo chmod +x rl-module/client
-sudo chmod +x rl-module/clientThr
-sudo chmod +x rl-module/orca-server-mahimahi
+chmod +x rl-module/client
+chmod +x rl-module/clientThr
+chmod +x rl-module/orca-server-mahimahi
 
 
