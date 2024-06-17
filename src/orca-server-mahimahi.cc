@@ -226,7 +226,7 @@ void start_server(int flow_num, int client_port)
     } 
     
   
-    sprintf(cmd,"/home/`whoami`/venv/bin/python %s/d5.py --tb_interval=1 --base_path=%s --load --eval --task=%d --job_name=actor --train_dir=%s  --mem_r=%d --mem_w=%d &",path,path,actor_id,path,(int)key,(int)key_rl);
+    sprintf(cmd,"/home/venv/bin/python %s/d5.py --tb_interval=1 --base_path=%s --load --eval --task=%d --job_name=actor --train_dir=%s  --mem_r=%d --mem_w=%d &",path,path,actor_id,path,(int)key,(int)key_rl);
     DBGPRINT(0,0,"Starting RL Module (No learning) ...\n%s",cmd);
   
  
