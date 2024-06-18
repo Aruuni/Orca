@@ -16,4 +16,4 @@ flownum=${FLOW_NUM}
 flowid=$((flownum + 1))
 export FLOW_NUM=flowid
 
-mm-delay ${delay} mm-link ${trace}  ${trace} --downlink-log=${log} --uplink-queue=droptail --uplink-queue-args=\"packets=${qsize}\" --downlink-queue=droptail --downlink-queue-args=\"packets=${qsize}\" -- sh -c "/home/sage/Orca/rl-module/client \$MAHIMAHI_BASE ${flowid} ${port} & sleep 10 && iperf3 -c \$MAHIMAHI_BASE -p 5201 -i 1 -R"
+mm-delay ${delay} mm-link ${trace}  ${trace} --downlink-log=${log} --uplink-queue=droptail --uplink-queue-args=\"packets=${qsize}\" --downlink-queue=droptail --downlink-queue-args=\"packets=${qsize}\" -- sh -c "/home/$(whoami)/Orca/rl-module/client \$MAHIMAHI_BASE ${flowid} ${port} & sleep 10 && iperf3 -c \$MAHIMAHI_BASE -p 5201 -i 1 -R"

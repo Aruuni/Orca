@@ -5,8 +5,8 @@
 rtts=( 10 100 )
 bws=( 12 300 )
 qsize=20
-orcapath=/home/sage/pantheon/third_party/orca
-resultspath=/home/sage/eval
+orcapath=/home/$(whoami)/pantheon/third_party/orca
+resultspath=/home/$(whoami)/eval
 
 
 #Orca evaluation. 

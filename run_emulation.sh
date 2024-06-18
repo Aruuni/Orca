@@ -1,10 +1,10 @@
 
 port=44444
 delay=20
-trace=/home/sage/Orca/traces/wired48
-log=/home/sage/Orca/rl-module/log/wired48.log
+trace=/home/$(whoami)/Orca/traces/wired48
+log=/home/$(whoami)/Orca/rl-module/log/wired48.log
 qsize=160
-path=/home/sage/Orca/rl-module
+path=/home/$(whoami)/Orca/rl-module
 period=20
 scheme="cubic"
 id=0

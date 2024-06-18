@@ -14,7 +14,7 @@ sudo sysctl -w -q fs.inotify.max_user_instances=524288
 
 #Start Sender
 port=4444
-path=/home/sage/Orca/rl-module
+path=/home/$(whoami)/Orca/rl-module
 period=20
 scheme="cubic"
 id=0
