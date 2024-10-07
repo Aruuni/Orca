@@ -42,7 +42,7 @@ If you change the path of the virtual environment, you need to change the source
 
 source ~/venv/bin/activate
 pip install --upgrade pip
-pip install gym tensorflow==1.14 sysv_ipc
+pip install gym tensorflow==1.14 sysv_ipc protobuf==3.20.*
 ```
 
 Verify Installation
@@ -55,29 +55,10 @@ To deactivate venv
 (venv) $ deactivate
 ```
 
-### Patching Orca's Kernel: (Option 1)
-Simplest option to install Orca's patched Kernels is to install the prepared debian packages:
+### Patching Orca's Kernel
 
-```
-cd linux
-sudo dpkg -i linux-image*
-sudo dpkg -i linux-header*
-sudo reboot 
-```
+Refer to sage[https://github.com/Aruuni/sage], as the sage patched kernel includes orca support 
 
-### Patching Orca's Kernel: (Option 2) 
-
-If you have already done the option 1, skip this part! 
-Another option is to compile your own kernel using the provided patch. You can use the instructions provided here to do that: https://github.com/Soheil-ab/C2TCP-IFIP/
-
-The source code is available in linux folder (https://github.com/Soheil-ab/Orca/blob/master/linux/linux-4-13-1-orca-0521%2Bc2tcp.patch)
-
-### Verify the new kernel
-After installing the Orca's kernel and restarting your system, use the following command to make sure that system is using the new kernel:
-
-```
-uname -r
-```
 
 The output should be 4.13.1-0521*. If not, you need to bring the 4.13.1-0521* Kernel image on top of the grub list. For instance, you can use grub-customizer application. Install the grub-customizer using following:
 
