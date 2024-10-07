@@ -57,7 +57,7 @@ To deactivate venv
 
 ### Patching Orca's Kernel
 
-Refer to (sage)[https://github.com/Aruuni/sage], as the sage patched kernel includes orca support 
+Refer to [sage](https://github.com/Aruuni/sage), as the sage patched kernel includes orca support 
 
 
 The output should be 4.13.1-0521*. If not, you need to bring the 4.13.1-0521* Kernel image on top of the grub list. For instance, you can use grub-customizer application. Install the grub-customizer using following:
