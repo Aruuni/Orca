@@ -32,7 +32,7 @@ Install Mahimahi (http://mahimahi.mit.edu/#getting)
 mkdir ~/venv
 sudo apt update
 sudo apt install python3-pip
-sudo pip3 install -U virtualenv
+sudo pip3 install -U virtualenv==15.2.*
 virtualenv ~/venv -p python3.7
 ```
 If you change the path of the virtual environment, you need to change the source code accordingly. The source code assumes that virtual environment is set @ ~/venv .
