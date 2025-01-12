@@ -27,34 +27,12 @@ Install Mahimahi (http://mahimahi.mit.edu/#getting)
 - Python >= 3.4
 - Tensorflow 1.14.0 
 
-##### Create a virtul environment
+##### Install python enviroment and build Orca client and server
 ```
-mkdir ~/venv
-sudo apt update
-sudo apt install python3-pip
-sudo pip3 install -U virtualenv==15.2.*
-virtualenv ~/venv -p python3.7
+bash build.sh
 ```
-If you change the path of the virtual environment, you need to change the source code accordingly. The source code assumes that virtual environment is set @ ~/venv .
-
-##### Install packages
-```
-
-source ~/venv/bin/activate
-pip install --upgrade pip
-pip install gym tensorflow==1.14 sysv_ipc protobuf==3.20.*
-```
-
-Verify Installation
-```
-python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
-```
-
-To deactivate venv
-```
-(venv) $ deactivate
-```
-
+ This release includes two versions: A standalone actor version and an actor-learner version.
+In the Standalone actor version, no learner will be initiated. This can be usefull when you simply wanna test the current model over an emulated link. However, the actor-learner version requires a learner being initiated before any actor can be started. The second mode is usefull for learning a new/better model and also, it still can be used for performing a simple test over emulated links.
 ### Patching Orca's Kernel
 
 Refer to [sage](https://github.com/Aruuni/sage), as the sage patched kernel includes orca support 
@@ -69,15 +47,8 @@ sudo apt-get install grub-customizer
 sudo grub-customizer
 ```
 
-### Build Orca's Server-Client Apps
- To build the required applications, run the following:
 
-```
-./build.sh
-```
 
- This release includes two versions: A standalone actor version and an actor-learner version.
-In the Standalone actor version, no learner will be initiated. This can be usefull when you simply wanna test the current model over an emulated link. However, the actor-learner version requires a learner being initiated before any actor can be started. The second mode is usefull for learning a new/better model and also, it still can be used for performing a simple test over emulated links.
 
 ### Run a Sample Test with the standalone version using the provided learned model
   
