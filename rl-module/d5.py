@@ -20,6 +20,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 import threading
 import logging
 import tensorflow as tf
@@ -38,7 +40,7 @@ import signal
 import pickle
 from utils import logger, Params
 from envwrapper import Env_Wrapper, TCP_Env_Wrapper, GYM_Env_Wrapper
-
+warnings.filterwarnings('ignore', category=DeprecationWarning, module='numpy', message='`np.float` is a deprecated alias')
 
 def create_input_op_shape(obs, tensor):
     input_shape = [x or -1 for x in tensor.shape.as_list()]
@@ -90,7 +92,7 @@ def evaluate_TCP(env, agent, epoch, summary_writer, params, s0_rec_buffer, eval_
                 env.write_action(a1)
 
             else:
-                print("Invalid state received...\n")
+                #print("Invalid state received...\n")
                 env.write_action(a)
                 continue
 
@@ -127,16 +129,16 @@ class learner_killer():
     def __init__(self, buffer):
 
         self.replay_buf = buffer
-        print("learner register sigterm")
+        #print("learner register sigterm")
         signal.signal(signal.SIGTERM, self.handler_term)
-        print("test length:", self.replay_buf.length_buf)
+        #print("test length:", self.replay_buf.length_buf)
     def handler_term(self, signum, frame):
         if not config.eval:
             with open(os.path.join(params.dict['train_dir'], "replay_memory.pkl"), "wb") as fp:
                 pickle.dump(self.replay_buf, fp)
-                print("test length:", self.replay_buf.length_buf)
-                print("--------------------------Learner: Saving rp memory--------------------------")
-        print("-----------------------Learner's killed---------------------")
+                #print("test length:", self.replay_buf.length_buf)
+                #print("--------------------------Learner: Saving rp memory--------------------------")
+        #print("-----------------------Learner's killed---------------------")
         sys.exit(0)
 
 
@@ -297,9 +299,9 @@ def main():
 
         if params.dict['ckptdir'] is not None:
             params.dict['ckptdir'] = os.path.join( config.base_path, params.dict['ckptdir'])
-            print("## checkpoint dir:", params.dict['ckptdir'])
+            #print("## checkpoint dir:", params.dict['ckptdir'])
             isckpt = os.path.isfile(os.path.join(params.dict['ckptdir'], 'checkpoint') )
-            print("## checkpoint exists?:", isckpt)
+            #print("## checkpoint exists?:", isckpt)
             if isckpt== False:
                 print("\n# # # # # # Warning ! ! ! No checkpoint is loaded, use random model! ! ! # # # # # #\n")
         else:
@@ -326,7 +328,7 @@ def main():
         if is_learner:
 
             if config.eval is True:
-                print("=========================Learner is up===================")
+                #print("=========================Learner is up===================")
                 while not mon_sess.should_stop():
                     time.sleep(1)
                     continue
@@ -409,14 +411,14 @@ def main():
                         env.write_action(a1)
 
                     else:
-                        print("TaskID:"+str(config.task)+"Invalid state received...\n")
+                        #print("TaskID:"+str(config.task)+"Invalid state received...\n")
                         env.write_action(a)
                         continue
 
                     if params.dict['recurrent']:
-                        fd = {a_s0:s0_rec_buffer, a_action:a, a_reward:np.array([r]), a_s1:s1_rec_buffer, a_terminal:np.array([terminal], np.float)}
+                        fd = {a_s0:s0_rec_buffer, a_action:a, a_reward:np.array([r]), a_s1:s1_rec_buffer, a_terminal:np.array([terminal], float)}
                     else:
-                        fd = {a_s0:s0, a_action:a, a_reward:np.array([r]), a_s1:s1, a_terminal:np.array([terminal], np.float)}
+                        fd = {a_s0:s0, a_action:a, a_reward:np.array([r]), a_s1:s1, a_terminal:np.array([terminal], float)}
 
                     if not config.eval:
                         mon_sess.run(actor_op, feed_dict=fd)
@@ -434,7 +436,7 @@ def main():
                         eval_step_counter = evaluate_TCP(env, agent, epoch, summary_writer, params, s0_rec_buffer, eval_step_counter)
 
 
-                print("total time:", time.time()-start)
+                ##print("total time:", time.time()-start)
 
 def learner_dequeue_thread(agent,params, mon_sess, dequeue, queuesize_op, Dequeue_Length):
     ct = 0

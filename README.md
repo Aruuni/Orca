@@ -27,58 +27,16 @@ Install Mahimahi (http://mahimahi.mit.edu/#getting)
 - Python >= 3.4
 - Tensorflow 1.14.0 
 
-##### Create a virtul environment
+##### Install python enviroment and build Orca client and server
 ```
-mkdir ~/venv
-sudo apt update
-sudo apt install python3-pip
-sudo pip3 install -U virtualenv
-virtualenv ~/venv -p python3
+bash build.sh
 ```
-If you change the path of the virtual environment, you need to change the source code accordingly. The source code assumes that virtual environment is set @ ~/venv .
+ This release includes two versions: A standalone actor version and an actor-learner version.
+In the Standalone actor version, no learner will be initiated. This can be usefull when you simply wanna test the current model over an emulated link. However, the actor-learner version requires a learner being initiated before any actor can be started. The second mode is usefull for learning a new/better model and also, it still can be used for performing a simple test over emulated links.
+### Patching Orca's Kernel
 
-##### Install packages
-```
-source ~/venv/bin/activate
-pip install --upgrade pip
-pip install gym
-pip install tensorflow==1.14
-pip install sysv_ipc
-```
+Refer to [sage](https://github.com/Aruuni/sage), as the sage patched kernel includes orca support 
 
-Verify Installation
-```
-python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
-```
-
-To deactivate venv
-```
-(venv) $ deactivate
-```
-
-### Patching Orca's Kernel: (Option 1)
-Simplest option to install Orca's patched Kernels is to install the prepared debian packages:
-
-```
-cd linux
-sudo dpkg -i linux-image*
-sudo dpkg -i linux-header*
-sudo reboot 
-```
-
-### Patching Orca's Kernel: (Option 2) 
-
-If you have already done the option 1, skip this part! 
-Another option is to compile your own kernel using the provided patch. You can use the instructions provided here to do that: https://github.com/Soheil-ab/C2TCP-IFIP/
-
-The source code is available in linux folder (https://github.com/Soheil-ab/Orca/blob/master/linux/linux-4-13-1-orca-0521%2Bc2tcp.patch)
-
-### Verify the new kernel
-After installing the Orca's kernel and restarting your system, use the following command to make sure that system is using the new kernel:
-
-```
-uname -r
-```
 
 The output should be 4.13.1-0521*. If not, you need to bring the 4.13.1-0521* Kernel image on top of the grub list. For instance, you can use grub-customizer application. Install the grub-customizer using following:
 
@@ -89,15 +47,8 @@ sudo apt-get install grub-customizer
 sudo grub-customizer
 ```
 
-### Build Orca's Server-Client Apps
- To build the required applications, run the following:
 
-```
-./build.sh
-```
 
- This release includes two versions: A standalone actor version and an actor-learner version.
-In the Standalone actor version, no learner will be initiated. This can be usefull when you simply wanna test the current model over an emulated link. However, the actor-learner version requires a learner being initiated before any actor can be started. The second mode is usefull for learning a new/better model and also, it still can be used for performing a simple test over emulated links.
 
 ### Run a Sample Test with the standalone version using the provided learned model
   
